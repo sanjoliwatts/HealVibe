@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hospital@Click</title>
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/styling.css">
+<style type="text/css">
+
+	.butt{
+	
+		background-color: #00A950 !important;
+		color: white !important;
+		
+	}
+
+</style>
+</head>
+
+<!-- Don't touch code before this line -->
+<body style="background-color: #F0F3F5;">
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x;  font-family:'san-serif';">
+<marquee behavior="scroll" direction="left" style="color:red">ADHD is thought to affect 3% to 9% of school aged children and young people (NICE, 2008) which is a significant number of children and yet it continues to remain an area that causes great difficulty and disagreement when seeking to understand this condition. Discussion still persists as to whether ADHD is hereditary, due to neglectful parenting or poor nutrition. </marquee>
+  <h1 style="padding-bottom: 20px; color : teal; text-transform: uppercase; font-weight: bolder; padding-left:20px; text-align:left">NEUROSCIENCE</h1>
+ <div class="row">
+ <div class="col-sm-8">
+ <p >
+ <ul><li style="font-size:17px;">At LifeSavers hospital of Neurosciences, we believe in offering super speciality tertiary care for kinds of neurological disorders. Our experts specialise in treating all kinds of brain tumours, spinal degenerative diseases, movement disorders, congenital anomalies of spine and brain as well as all neurovascular diseases/trauma of spine and brain.</li><br>
+
+<li style="font-size:17px;">We offer a broad spectrum of services like Advanced Brain Tumor Centre, Minimally Invasive Spine Surgery Centre, and Stroke Centre. We have the most advanced Neurological Operation theatre- BRAINSuite- at Infy Hospital, Saket. It is the third in the World and First in Asia. It ensures precise treatment of brain tumours by constantly updating MRI scans during brain surgery.</li><br>
+
+<li style="font-size:17px;">The Neurosciences centre of excellence is equipped with Neuro Navigation, Stereotaxy, Microscopic Surgery (High-end microscope), advanced brain tumour centre, Endoscopic surgery, and special clinics for Epileptic, Neuromuscular and movement disorders.<br> We also perform neurological procedures like Brain & Spine Surgery, Paediatric Neurosurgery, Interventional Neurology, Neuro-Immunology, Brain Tumor Removal, Baclofen Pump and Disc Replacement Surgery.</li></ul> 
+ </p></div>
+  <div class="col-sm-4">
+	   		<div class="card" style="width:250px; height: 420px; box-shadow: 0px 0px 2px 2px #777; padding: 2px;">
+			    <img class="card-img-top" src="../img/nc.jpg" alt="Card image" style="width: 100%; height: 160px;">
+			    <div class="card-body">
+			      <h4 class="card-title" style="color:TEAL">NEUROLOGY</h4>
+			      <p class="card-text" style="color:brown" >Super speciality tertiary care for kinds of neurological disorders</p><br>
+			           <div style="text-align: center;">
+			      <button class="btn btn-md" id="know" data-toggle="modal" data-target="#myModal" style="border-radius: 0px; background-color: white; color: black; border: 2px solid #00A950; font-weight: bold;">Know More</button>
+			   </div>
+			      </div>
+			   </div>
+	  		</div>
+	   </div>
+	    <script type="text/javascript">
+	   
+	   		$("#know").mouseover(function(){
+	   			$(this).addClass("butt");
+	   		});
+	   		$("#know").mouseout(function(){
+	   			$(this).removeClass("butt");
+	   		});
+	   
+	   </script>
+	   <div class="modal fade" id="myModal" role="dialog">
+    	<div class="modal-dialog">
+  	<div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" style="text-align: center; color:teal; font-weight: bolder; padding-left:20px; text-align:left">NEUROLOGY</h4>
+        </div>
+        <div class="modal-body">The Department of Neurology is committed to integrating their exceptional medical expertise, technology and innovation to offer best in class treatments. The department provides treatment for people with neurological disorders such as Parkinson, stroke, epilepsy, diagnosis and treatment of paralytic disorders, sleep disorders, multidisciplinary assessment and management of multiple sclerosis, and headaches. The department is staffed leading panel of surgeons, doctors and nursing staff who offer cutting-edge diagnosis using the latest neuroimaging techniques.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" style="color:teal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      </div>
+  	</div>
+	
+</body>
+</html>

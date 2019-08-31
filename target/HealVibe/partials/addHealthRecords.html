@@ -1,0 +1,60 @@
+<div class="container-fluid">
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="addHealthRecordsModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4></span>Add Health Record</h4>
+        </div>
+        <div class="modal-body">
+          <form >
+			<div class="form-group">
+				 <input type="number" name="patientId" placeholder="Enter Patient Id"
+					class="form-control" ng-model="records.pId"
+					required="required" autofocus />
+			</div>
+			<div class="form-group">
+				 <input type="number" name="height" placeholder="Enter Patient's Height(In Centimeters)"
+					class="form-control" ng-model="records.height"
+					required="required" autofocus />
+			</div>
+			<div class="form-group">
+				 <input type="number" name="weight" placeholder="Enter Patient's weight(In Kg's)"
+					class="form-control" ng-model="records.weight"
+					required="required" autofocus />
+			</div>
+			<div class="form-group">
+				 <input type="text" name="issueList" placeholder="Issue List"
+					class="form-control" ng-model="records.issueList"
+					required="required" autofocus />
+			</div>
+			<div class="form-group">
+				 <input type="text" name="allergies" placeholder="Allergies"
+					class="form-control" ng-model="records.allergies"
+					required="required" autofocus />
+			</div>
+		 	
+			<div class="form-group">
+				 <input type="text" placeholder="Medications"
+					class="form-control" ng-model="records.medications"  required="required"/>
+			</div>
+			<div class="form-group">
+            	<input type="text" placeholder="Doctor Name" name="doctorName" ng-model="records.doctorName"  
+                	class="form-control" required="required">
+           	</div>
+			
+			<button type="submit" class="btn btn-primary btn-block" ng-click="records.submitRecords();">Submit</button>
+			<div>{{records.message}}</div>
+		</form>
+        </div>
+       
+      </div>
+    </div>
+  </div> 
+</div>
+
+

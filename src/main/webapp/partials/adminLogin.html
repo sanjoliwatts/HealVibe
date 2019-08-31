@@ -1,0 +1,80 @@
+<link rel="stylesheet" href="../css/bootstrapAdmin.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+
+<body class="container-fluid" ng-app="App" ng-controller="AdminController" background="../img/admin.jpg"> 
+<nav class="navbar navbar-default" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+				<a href="#/" class="navbar-brand">Admin</a>
+			</div>
+			<div class="collapse navbar-collapse" id="my-nav">
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Welcome {{patient.pname}}<span class="caret"></span></a>
+		        	<ul class="dropdown-menu">
+            <li><a href="../index.html" data-toggle="modal" >Logout</a></li>
+              
+          </ul>	
+		        	</li>
+                 </ul>
+			</div>
+		</div>
+	</nav>
+<div class="container-fluid" >
+
+	<div class="col-md-4"></div>
+	<div class="col-md-4 bordering" ng-init="fetchDoctorList()">
+	
+			<form>
+				<div class="form-group">
+					<h2 style="color:black;">Select Doctor ID</h2>
+					<select class="form-control"   ng-model="details.did" ng-change="fetchdoctordetails();">
+						<option  ng-repeat="i in doctorList" ng-value="i">{{i}}</option>
+					</select>
+				</div>
+				<div ng-show="details.did" class="form-group">
+				
+				<table class="table table-bordered table-hover">
+				<caption style="color:blue;">Details of Doctor</caption>
+					<tr>
+						<th padding: 15px;>Name</th>
+						<th padding: 15px;>Experience</th>
+						<th padding: 15px;>Department</th>
+						<th padding: 15px;>Approve</th>
+						<th padding: 15px;>Remove</th>
+					</tr>
+					<tr ng-class-even="'info'" ng-class-odd="'success'">
+						<td padding: 15px;>{{doctor.name}}</td>
+						<td padding: 15px;>{{doctor.experience}} Years</td>
+						<td padding: 15px;>{{doctor.department}}</td>
+						<td  padding: 15px; ng-click="confirm();">  
+						<span class="glyphicon glyphicon-plus" style="color:green;"></span> </td>
+						<td padding: 15px; ng-click="deleteEntry();">  
+						<span class="glyphicon glyphicon-remove" style="color:red;"></span> </td>
+					</tr>
+				</table>
+						{{details.message}}
+				</div>
+				<!-- <div ng-show="details.did" class="form-group">
+					<input type="button" value="Confirm" class="btn btn-primary" ng-click="confirm()">
+				</div> 
+				<div ng-show="details.did" class="form-group">
+					<input type="button" ng-click="deleteEntry()" value="Delete" class="btn btn-primary">
+				</div> -->
+			</form>
+		<br />
+	</div>	
+	<div class="col-md-4" ></div>
+</div>
+</body>	

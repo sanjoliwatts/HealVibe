@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>HealVibe</title>
+<!-- ******************************************************** -->
+<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+<!-- <script src="js/shared/angular.js"></script> -->
+<!-- <script src="js/shared/angular-route.js"></script> -->
+<!-- <script src="js/shared/jquery.js"></script> -->
+<!-- <script src="js/shared/angular-cookies.js"></script> -->
+<!-- <script src="js/shared/bootstrap.js"></script> -->
+
+<!-- ******************************************************** -->
+<!-- For glyphicon  icons -->
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+        <!-- <script src="webjars/jquery/3.4.1/jquery.min.js"></script> -->  <!-- uncomment -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <!-- <script src="webjars/angularjs/1.7.7/angular.min.js"></script> -->  <!-- uncomment -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+        <!-- <script src="webjars/angularjs/1.7.7/angular-route.min.js"></script> --><!-- uncomment -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <!-- <script src="webjars/angularjs/1.7.7/angular-cookies.min.js"></script> --> <!-- uncomment -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+        
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+<!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+<link rel="stylesheet" href="css/styling.css">
+<link rel="stylesheet" href="css/bootstrapWelcomepage.css">
+
+<!-- <link rel="stylesheet" href="css/bootstrapwelcomePatientPage.css"> -->
+
+<link href="https://fonts.googleapis.com/css?family=
+Arimo|Courgette|Crimson+Text|Kavivanar|Lora|Noto+Serif|Nunito|PT+Sans+Narrow|PT+Serif|Quicksand|Rubik|Tajawal" rel="stylesheet">
+</head>
+
+<script src="js/properties.js"></script>
+<script src="js/application.js"></script>
+<script src="js/Controller.js"></script>
+<!-- Don't touch code before this line -->
+
+<body ng-app="Application" ng-controller="ApplicationController">
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+			
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+      			
+				<!-- <a href="#/"><img src="img/logo1.png"> </a> -->
+			</div>
+			<div class="collapse navbar-collapse" id="my-nav">
+				<ul class="nav navbar-nav" style="color:white;">
+					<li><a href="partials/aboutus.html">About Us</a></li>
+				</ul>
+				<ul class="nav navbar-nav">
+					<li><a href="partials/contactus.html">Contact Us</a></li>
+				</ul>
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li><a href="partials/department.html">Departments</a></li>
+		        	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Register As<span class="caret"></span></a>
+		        	<ul class="dropdown-menu">
+            <li><a href="#!/registerPatient" data-toggle="modal" data-target="#registerPatientModal" id="registerPatient">Patient</a></li>
+            <li><a href="#!/registerDoctor" data-toggle="modal" data-target="#registerDoctorModal" id="registerDoctor">Doctor</a></li>
+            
+          </ul>
+		        	</li>
+		        	<li><a href="#!/login" data-toggle="modal" data-target="#myModal" id="login">Login</a></li> 
+                 </ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div class="container" style="width: 100%;">
+  <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <!-- <li data-target="#myCarousel" data-slide-to="3"></li> -->
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" >
+       <div class="item active">
+        <img class="img-responsive" src="img/h9.jpg" alt="Hospital" style="width:100%; height:450px; opacity: 0.6; ">
+   <div class="carousel-caption"  style="color: #112438cc;">
+           Make Health Your Priority
+         <p>  Choose from multiple payment options at HealVibe</p>
+         <button type="button" class="btn btn-primary"  ng-click="load()">Explore Payment options</button>
+           </div>
+      </div> 
+
+       <div class="item">
+        <img class="img-responsive" src="img/hospital1.jpg" alt="Hospital" style="width:100%; height:450px; opacity: 0.6;">
+        <div class="carousel-caption" style="color:#0c416fe0;">
+           Prevention Is Better Then Cure
+         <p style="color:#073055e0;">  Cherish Every Moment Of Your Golden Years</p>
+         <button style="background-color:teal;" type="button" class="btn btn-primary" ng-click="navigateToHealth()">Check Health Packages</button>
+           </div>
+      </div> 
+    
+      <div class="item active">
+        <img class="img-responsive" src="img/doctor.jpg" alt="Hospital " style="width:100%;height:450px; opacity:0.9">
+        <div class="carousel-caption" style="text-align: left; left: 2%; color: #203a1de8; top: 9%;">
+        Get Your Appointment Booked
+         <p >Take Care Of Your Body. It's The Only Place You Have To Live In...</p>
+         
+           </div>
+      </div> 
+    <!--    <div class="item active">
+        <img class="img-responsive" src="img/medwall.jpg" alt="Hospital" style="width:100%;height:450px; opacity: 0.5;">
+        <div class="carousel-caption" style=" text-align: left; margin-right:180px; margin-top:120px;">
+        Get Every Medicine Everytime
+         <p>We have the widest range of medicines online, sourced from our
+         trusted network of pharmacies and medical stores.</p>
+        <button style="background-color:teal;" type="button" class="btn btn-primary" ng-click="load()">Order Now</button>
+      </div>
+    </div>   -->
+      <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+</div>
+<h2>Centres of Excellence</h2>
+<div class="row">
+<a href="partials/neurosciences.html">
+<div class="col-md-2 col-md-offset-1" >
+<figure>
+<img src="img/brain.png" class="img-circle img-responsive" alt="Brain Image" style="height:180px; width:280px">
+ <figcaption style="color: darkred; cursor: pointer;">Neurosciences</figcaption>
+</figure>
+</div>
+</a>
+<a href="partials/cardiosciences.html">
+<div class="col-md-2 col-md-offset-1" >
+<figure>
+<img src="img/heart.png" class="img-circle img-responsive" alt="Heart Image" style="height:180px; width:280px">
+ <figcaption style="color: darkred; cursor: pointer;">Cardiosciences</figcaption>
+</figure>
+</div>
+</a>
+<a href="partials/spine.html">
+<div class="col-md-2 col-md-offset-1" >
+<figure>
+<img src="img/spine.jpg" class="img-circle img-responsive" alt="spine Image" style="height:180px; width:280px">
+ <figcaption style="color: darkred; cursor: pointer;">Spine</figcaption>
+</figure>
+</div>
+</a>
+<a href="partials/orthopaedics.html">
+<div class="col-md-2 col-md-offset-1" >
+<figure>
+<img src="img/ortho.jpg" class="img-circle img-responsive" alt="spine Image" style="height:180px; width:280px">
+ <figcaption style="color: darkred; cursor: pointer;">Orthopaedics</figcaption>
+</figure>
+</div>
+</a>
+</div>
+
+<div class="container-fluid bg-1"> 
+<div class="col-md-6 col-md-offset-1">
+<h3 style="font-size: 28px;">Key Medical Procedures</h3>
+  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+  
+    <!-- Wrapper for slides -->
+     <div class="carousel-inner" style="height: 550px" >
+    
+       <div class="item active">
+        <img class="img-responsive " src="img/dentist.jpg" alt="Hospital" style="width:100%; height:270px; opacity: 0.9; ">
+    <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+           <span style=" font-family: -webkit-body; font-size:35px;">Oral and maxillofacial surgery</span>
+         <p style="padding-top: 10px; width:95%; font-size:20px; font-style: italic;">  Oral and maxillofacial surgery (OMS or OMFS) specializes in 
+         treating many diseases, injuries and defects in the head, neck, face, jaws and the hard and 
+         soft tissues of the oral (mouth) and maxillofacial (jaws and face) region.</p>
+           </div>
+      </div>  
+
+         <div class="item">
+        <img class="img-responsive " src="img/rehab.jpg" alt="Hospital" style="width:100%; height:300px; opacity: 0.9;">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+         <span style=" font-family: -webkit-body; font-size: 30px;">Physical And Rehabilitation</span>
+         <p style="padding-top: 10px; width:95%; font-style: italic; font-size:20px;">  Physical medicine and rehabilitation (PM&R), also known as physiatry or 
+         rehabilitation medicine, aims to enhance and restore functional ability and quality of 
+         life to those with physical impairments or disabilities affecting the brain, spinal cord,
+          nerves, bones, joints, ligaments, muscles, and tendons.</p>
+           </div>
+       
+      </div> 
+    
+      <div class="item active">
+        <img class="img-responsive" src="img/child.jpg" alt="Hospital " style="width:100%;height:300px; opacity:0.9">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+        <span style=" font-family: -webkit-body; font-size: 35px;">Infertility Care</span>
+         <p style="padding-top: 10px; width:95%; font-style: italic; font-size:21px;">In order to determine the best treatment for you, we need to make sure you have 
+         an accurate infertility diagnosis. There are many different causes of infertility;
+          identifying which is responsible is a crucial first step.</p>
+         
+           </div>
+      </div>  
+       <div class="item active">
+        <img class="img-responsive" src="img/surgery.jpg" alt="Hospital" style="width:100%; height:280px; opacity:1;">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+        <span style=" font-family: -webkit-body; font-size: 35px; ">Robotic surgery</span>
+         <p style="padding-top: 10px; width:95%; font-style: italic; font-size:21px;">Major advances aided by surgical robots have been remote surgery, minimally 
+         invasive surgery and unmanned surgery. Due to robotic use, the surgery is done 
+         with precision, miniaturization, smaller incisions; decreased blood loss, less pain, 
+         and quicker healing time.</p>
+      </div>
+    </div>   
+      <!-- Left and right controls -->
+     <a class="left carousel-control" href="#myCarousel2" data-slide="prev">
+      
+    </a>
+    <a class="right carousel-control" href="#myCarousel2" data-slide="next">
+      
+    </a>
+  </div>
+</div>
+</div> 
+<div class="col-md-4 col-md-offset-1">
+<h3 style="font-size: 28px;">Patient's Speak</h3>
+  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+  
+    <!-- Wrapper for slides -->
+     <div class="carousel-inner"  >
+    
+    
+       <div class="item active">
+    <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+         <p style="padding-top: 10px; width:95%; font-size:18px; font-family: 'Nunito', sans-serif;"> 
+          When I was 80 in 2010, my surgeon Dr.Paul Ramesh told me that if I if I chose medicinal aid
+           it will be palliative but choosing bypass surgery will be more curative. The one memorable 
+           line which made me decide on surgery was his saying "I will do it as I would do it to my father."
+            I am hale and hearty now and better than what I was at 80.
+</p>
+         <span style=" font-family: -webkit-body; font-size: 20px;">R.Natarajan, Chennai</span>
+           </div>
+      </div>  
+
+           <div class="item">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+         <p style="padding-top: 10px; width:95%; font-family: 'Nunito', sans-serif; font-size:18px;">  I never
+          thought I was so fat until my trip to Spain in March 2016. I made a resolution to lose
+           all the extra flab in a year, but failed to do so in the first 6 months. That's when I
+            decided to undergo Bariatrics during my New Year trip to India in December 2016. I can't
+             believe I could achieve that and look stunning like any other fit girl around. Sleeve 
+             Gastrectomy has completely change my outlook towards life and I feel like am born 
+             again."</p>
+             <span style=" font-family: -webkit-body; font-size: 20px;">Mrs. Rachel Witchowski</span>
+           </div>
+       
+      </div> 
+    
+      <div class="item active">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+         <p style="padding-top: 10px; width:95%; font-family: 'Nunito', sans-serif; font-size:18px;">I was so
+          impressed with the standards of the hospital and especially the Wonderful attention 
+          of all the staff. The nursing care is second to none. I had my right knee joint replaced 
+          and I was amazed at the speed of my own recovery time. I was honored to give a lecture to 
+          nurses and staff on Kenya and I wish HealVibe Hospital and its staff all the best for the 
+          future.</p>
+                 <span style=" font-family: -webkit-body; font-size: 20px;">Ms. Deepika Lamech</span>
+         
+           </div>
+      </div>  
+       <div class="item active">
+        <div class="carousel-caption" style="position:relative; top:0px; right:0px; left:10px; text-align: justify;">
+         <p style="padding-top: 10px; width:95%; font-size:18px; font-family: 'Nunito', sans-serif;">I come 
+         from a family of doctors and I was suffering from morbid obesity with co-morbidities
+          like diabetes, hypertension, and sleep apnoea. It was becoming increasingly difficult 
+          for me to concentrate on my practice and continue my day today life. I've been 
+          consulted...
+</p>
+        <span style=" font-family: -webkit-body; font-size: 20px; ">Dr. Rama Devi</span>
+
+      </div>
+    </div>   
+      <a class="left carousel-control" href="#myCarousel3" data-slide="prev">
+      
+    </a>
+    <a class="right carousel-control" href="#myCarousel3" data-slide="next">
+      
+    </a>
+   
+  </div>
+</div>
+</div>
+ 
+ 
+</div>
+
+	<div>{{signupForm.message}}</div>
+	<!-- Don't touch code after this line -->
+     	<div class="container-fluid">
+		<div class="text-center">
+			<div ng-view="myView"></div>
+		</div>
+	</div> 
+	<footer>
+	<div class="row">
+	<div class="col-xs-6 col-sm-6 col-md-4" style="padding-left: 0px;">
+	<h3>Quick Links</h3>
+	<ul>
+			<a href="partials/aboutus.html" title="About Us" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">About Us</a>
+			</br>
+			<a href="partials/contactus.html" title="Contact Us" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Contact Us</a>
+			</br>
+			<a href="partials/department.html" title="Our Departments" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Our Departments</a>
+			</br>
+			<a href="partials/healthPackages1.html" title="Orthopaedics" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Health Packages</a>
+			</br>
+		</ul></div>
+	<div class="col-xs-6 col-sm-6 col-md-4 " style="padding-left: 0px;">
+	<h3>Centres Of Exellence</h3>
+	<ul>
+			<a href="partials/spine.html" title="Spine" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Spine</a>
+			</br>
+			<a href="partials/neurosciences.html" title="Neurosciences" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Neurosciences</a>
+			</br>
+			<a href="partials/cardiosciences.html" title="Cardiosciences" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Cardiosciences</a>
+			</br>
+			<a href="partials/orthopaedics.html" title="Orthopaedics" style="color:#000000; font-size:20px; font-family: 'Noto Serif', serif;">Orthopaedics</a>
+			</br>
+		</ul></div>
+	<div class="col-xs-6 col-sm-12 col-md-4" style="padding-left: 0px;">
+	                               <h3 >Stay In Touch</h3><p>
+                                        Tower A, Unitech Business Park,<br>
+                                        Block - F, South City 1, Sector - 41,<br>
+                                        Gurgaon, Haryana - 122001<br>
+                                        LifeLine: 8769543210
+                                    </p>
+</div>
+                                    </div>
+	</footer>
+</body>
+</html>

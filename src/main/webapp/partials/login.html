@@ -1,0 +1,40 @@
+<div class="container-fluid">
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
+        </div>
+        <div class="modal-body">
+          <form ng-submit="credentials.login()">
+			<div class="form-group">
+				<input class="form-control" type="text" ng-model="credentials.userId" placeholder="Enter User Id" required="required"/>
+				
+			</div>
+			<div class="form-group">
+				<input class="form-control" type="password" ng-model="credentials.password" placeholder="Enter Password" required="required"/>
+				
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Login" class="btn btn-primary"/>
+			</div>
+			<div>
+				{{credentials.message}}
+			</div>
+		</form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+         
+          
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+

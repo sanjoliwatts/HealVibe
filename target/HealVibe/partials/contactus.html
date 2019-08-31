@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Contact Us</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+</head>
+<body>
+<img src="../img/hospital.jpg" width="1380" height="380">
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+<h1 style="text-decoration:underline; color:teal">Feedback and Suggestions</h1>
+<p style="font-size:18px">At HealVibe Hospital, we place great importance to your feedback and suggestions.
+Therefore, we would like to hear about your experience at HealVibe Hospital and understand if we meet your expectations.
+All you have to do is fill in the form below and click on send.</p></div>
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+<p style="font-size:18px">Thank you in advance for sharing your opinions with us 
+and we assure you that we will utilize your opinions to develop processes to serve you better.</p>
+<h1 style="text-decoration:underline; color:teal">Feedback Form</h1>
+</div></div>
+<form id="myform">
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+  First name *:<br>
+  <input id="name" type="text" name="firstname" required="required" pattern="[a-zA-Z]+" oninvalid="setCustomValidity('Name should contain only alphabets');"></div>
+  
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+  Last name *:<br>
+  <input id="name" type="text" name="lastname" required="required"></div>
+  
+  <div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+  E-mail *:<br>
+  <input type="email" name="email" required="required"></div>
+  
+  <div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+  Feedback/suggestions *:<br>
+  <input type="text" name="feedback" required="required"></div>
+  <div class="container-fluid" style="padding-top: 20px; padding-right:100x; font-family:'san-serif';">
+  <input required="required" type="button" class="ra" value="Submit">
+</form></div>
+<script type="text/javascript">
+	
+		$(".ra").click(function(){
+			swal("Feedback Sent", "Thank you. Your feedback has been submitted successfully.", "success");
+		});
+	
+	</script>
+
+	   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
+

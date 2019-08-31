@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hospital@Click</title>
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+<!-- ******************************************************** -->
+<link rel="stylesheet" href="../css/bootstrap.css">
+<link rel="stylesheet" href="../css/styling.css">
+<style type="text/css">
+
+	.butt{
+	
+		background-color: #00A950 !important;
+		color: white !important;
+		
+	}
+</head>
+
+<!-- Don't touch code before this line -->
+<body style="background-color: #F0F3F5;">
+
+
+</style>
+<div class="container-fluid" style="padding-top: 20px; padding-right:100x;  font-family:'san-serif';">
+<marquee behavior="scroll" direction="left" style="color:red;">Orthopedic patients have benefited from technological advances such as joint replacement, and the arthroscope that allows the orthopedist to look inside a joint. But your visit will start with a personal interview and physical examination. This may be followed by diagnostic tests such as blood tests, X-rays, or other tests.</marquee>
+ <h1 style="padding-bottom: 20px; color : teal; text-transform: uppercase; font-weight: bolder; padding-left:20px; text-align:left">ORTHOPAEDICS</h1>
+ <div class="row">
+ <div class="col-sm-8">
+ <p style="font-size:17px;">Orthopedics is a medical specialty that focuses on the diagnosis, correction, prevention, and treatment of patients with skeletal deformities - disorders of the bones, joints, muscles, ligaments, tendons, nerves and skin. These elements make up the musculoskeletal system.<BR>
+<br><h4 style="color:black; font-weight: bolder; padding-left:20px; text-align:left">Specialties:</h4>
+<p style="font-size:17px">While most orthopedists practice general orthopedics, some may specialize in treating the foot, hand, shoulder, spine, hip, knee, and others in pediatrics, trauma or sports medicine. Some orthopedists may specialize in several areas.</p>
+<br><h4 style="color:black; font-weight: bolder; padding-left:20px; text-align:left">Treatments:</h4>
+<p style="font-size:17px">We offer treatment of the entire gamut of orthopaedics conditions including:</p>
+<ul>
+<li style="font-size:17px;">Orthopedic patients have benefited from technological advances such as joint replacement, and the arthroscope that allows the orthopedist to look inside a joint. But your visit will start with a personal interview and physical examination. This may be followed by diagnostic tests such as blood tests, X-rays, or other tests.</li><br>
+<li style="font-size:17px;">Your treatment may involve medical counseling, medications, casts, splints, and therapies such as exercise, or surgery. For most orthopedic diseases and injuries, there is more than one form of treatment. Your orthopedist will discuss the treatment options with you and help you select the best treatment plan to enable you to live an active and functional life.</li><br>
+ </p></div>
+  <div class="col-sm-4">
+	   		<div class="card" style="width:250px; height: 420px; box-shadow: 0px 0px 2px 2px #777; padding: 2px;">
+			    <img class="card-img-top" src="../img/or3.jpg" alt="Card image" style="width: 100%; height: 160px;">
+			    <div class="card-body">
+			      <h4 class="card-title" style="color:TEAL">ORTHOPAEDICS</h4>
+			      <p class="card-text" style="color:brown" >Sprains or dislocations and fractures account for almost one-half of all musculoskeletal injuries</p><br>
+			       <div style="text-align: center;">
+			      <button class="btn btn-md" id="know" data-toggle="modal" data-target="#myModal" style="border-radius: 0px; background-color: white; color: black; border: 2px solid #00A950; font-weight: bold;">Know More</button>
+			   </div>
+	  		</div>
+	   </div>
+	   
+	   <script type="text/javascript">
+	   
+	   		$("#know").mouseover(function(){
+	   			$(this).addClass("butt");
+	   		});
+	   		$("#know").mouseout(function(){
+	   			$(this).removeClass("butt");
+	   		});
+	   
+	   </script>
+	   <div class="modal fade" id="myModal" role="dialog">
+    	<div class="modal-dialog">
+  	<div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" style="text-align: center; color:teal; font-weight: bolder; padding-left:20px; text-align:left">Orthopedics</h4>
+        </div>
+        <div class="modal-body">Orthopaedics is a medical specialty concerned with the prevention and treatment of disorders of the musculoskeletal system by use of surgical and non-surgical methods.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" style="color:teal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      </div>
+  	</div>
+</body>
+</html>

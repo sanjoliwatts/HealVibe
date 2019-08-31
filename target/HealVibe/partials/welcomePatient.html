@@ -1,0 +1,223 @@
+<link rel="stylesheet" href="../css/bootstrapPatient.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js"></script>
+ <script>
+  function demoFromHTML() {
+	    var pdf = new jsPDF('p', 'pt', 'letter');
+	    // source can be HTML-formatted string, or a reference
+	    // to an actual DOM element from which the text will be scraped.
+	   source = $('#customers')[0];
+
+	    // we support special element handlers. Register them with jQuery-style 
+	    // ID selector for either ID or node name. ("#iAmID", "div", "span" etc.)
+	    // There is no support for any other type of selectors 
+	    // (class, of compound) at this time.
+	    specialElementHandlers = {
+	        // element with id of "bypass" - jQuery style selector
+	        '#bypassme': function (element, renderer) {
+	            // true = "handled elsewhere, bypass text extraction"
+	            return true
+	        }
+	    };
+	    margins = {
+	        top: 80,
+	        bottom: 60,
+	        left: 40,
+	        width: 522
+	    };
+	    // all coords and widths are in jsPDF instance's declared units
+	    // 'inches' in this case
+	    pdf.fromHTML(
+	    source, // HTML string or DOM elem ref.
+	    margins.left, // x coord
+	    margins.top, { // y coord
+	        'width': margins.width, // max width of content on PDF
+	        'elementHandlers': specialElementHandlers
+	    },
+
+	    function (dispose) {
+	        // dispose: object with X, Y of the last line add to the PDF 
+	        //          this allow the insertion of new lines after html
+	        pdf.save('Test.pdf');
+	    }, margins);
+	}
+  </script>
+<body ng-app="patientApp" ng-controller="patientBookingController" ng-init="patient.fetchName()"> 
+<nav class="navbar navbar-default" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+				<a href="#/" class="navbar-brand">Patient Care</a>
+			</div>
+			<div class="collapse navbar-collapse" id="my-nav">
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Welcome {{patient.pname}}<span class="caret"></span></a>
+		        	<ul class="dropdown-menu">
+            <li><a href="../index.html" data-toggle="modal" >Logout</a></li>
+              
+          </ul>	
+		        	</li>
+                 </ul>
+			</div>
+		</div>
+	</nav>
+
+
+<header class="intro">
+  <div class="background-image"></div>
+  <div class="intro-body">
+    <div class="container-fluid">
+     
+        
+          <h2 style="color:#004d4d; font-size: 40px;">Get The Right Response</h2>
+          <h1 style="color:#004d4d">24/7 Care!</h1>
+          
+          <div style="display:inline-block; padding-top:55px;">
+               <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/bookAppointment" data-toggle="modal" data-target="#bookAppointmentModal" id="bookAppointment">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/doc_icon.png" class="img-responsive" style="max-width:100%;max-height:100%"></div>
+                                  <h2 ><span class="block-btn">Book Appointment</span></h2>
+                                  <p style="color:white;">4000 Doctors | 220 Specialties Quick &amp; Easy Appointments</p>
+                                </div></a>
+                      </ul>
+                    </div>
+                    
+             <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/cancelAppointment" data-toggle="modal" data-target="#cancelAppointmentModal" id="cancelAppointment">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/cancel_appointment.png" class="img-responsive" 
+                                 style="max-width:100%;max-height:100%"></div>
+                                  <h2 ><span class="block-btn">View And Cancel Appointment</span></h2>
+                                 <p style="color:white;">Schedule Your Appointment, anytime.</p>
+                                </div></a>
+                      </ul>
+                    </div>
+                     <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/viewHealthRecord" data-toggle="modal" data-target="#myviewcomponent" id="viewHealthRecord">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/health_record.png" class="img-responsive" 
+                                 style="max-width:100%;max-height:100%"></div>
+                                    <h2 ><span class="block-btn">View Health Records</span></h2>
+                                    <p style="color:white;">No heaps of papers, only easy access</p>
+                                </div></a>
+                        </ul>
+                    </div>
+                    <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="healthPackages.html">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/book_package.jpg" class="img-responsive" 
+                                 style="max-width:100%; max-height:100%"></div>
+                                    <h2 ><span class="block-btn">Book Health Check</span></h2>
+                                    <p style="color:white;">Presonalized packages for the best of your health</p>
+                                </div></a>
+                        </ul>
+                    </div>
+                   <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/bloodGroup"  data-toggle="modal" data-target="#registerBloodModal" id="registerBloodGroup">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/blood_icon.png" class="img-responsive" 
+                                 style="max-width:100%; max-height:100%"></div>
+                                    <h2 ><span class="block-btn">Blood Connections</span></h2>
+                                    <p style="color:white;">
+                                        Donate Blood, Save Life
+                                        
+                                    </p>
+                                </div></a>
+                            
+                        </ul>
+                    </div>
+                </div>
+    </div>
+  </div>
+</header>
+<div class="modal fade" id="myviewcomponent" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Your Health Record</h4>
+        </div>
+        <div class="modal-body" ng-init="patient.fetchHealthRecord()">
+          <div id="customers">
+
+ <!-- <div class="row">
+ <div class="col-md-4" 	>	
+ <h4 >Patient Id: {{ record.pId }}</h4>
+<h4 > Issue List </h4>
+<span style="margin-left:100px;">{{ record.issueList}}</span> <br><br><br>
+<h4 > Medications Given </h4>
+<span style="margin-left:100px;"> {{ record.medications}}</span>
+ </div>
+ 
+ <div class="col-md-4" style="max-height:100%">
+  <h4 style="padding-top:33px;">Allergies: </h4>
+ <span style="margin-left:100px; margin-top:18px;"> {{ record.allergies}}</span>
+ 
+ </div>
+ 
+  <div class="col-md-4">
+  <h4 >Patient Name: {{ patient.pname|uppercase }}</h4>
+  <h4 > Weight: {{ record.weight}} Kg</h4>
+   <h4 >Height: {{ record.height}} cm</h4>
+   <br>
+ <h4> Treated By: {{ record.doctorName |uppercase}}</h4>
+ 
+  </div>
+ </div> -->
+ 
+     <table class="table table-bordered table-hover">
+   	<tr>
+   		<th>Id</th>
+   		<th>Height</th>
+   		<th>Weight</th>
+   		<th>Issue List</th>
+   		<th>Allergies</th>
+   		<th>Medications</th>
+   		<th>Doctor Name</th>
+   	</tr>
+   	<tr>
+   		<td>{{ record.pId }}</td>
+   		<td> {{ record.height }} cm</td>
+   		<td> {{ record.weight}} kg</td>
+   		<td>{{ record.issueList}}</td>
+   		<td> {{ record.allergies}}</td>
+   		<td>{{ record.medications}}</td>
+   		<td>{{ record.doctorName}}</td>
+   	</tr> 
+   </table>
+
+</div>
+
+<span style="padding-left: 350px;"><button onclick="javascript:demoFromHTML();" class="btn btn-info">Download</button></span>
+  </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container-fluid">
+		<div class="text-center">
+			<div ng-view="myView"></div>
+		</div>
+	</div> 
+	
+</body>

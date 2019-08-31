@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"> 
+<!--   <link rel="stylesheet" href="../css/bootstrapHealthPackage.css"> -->
+  <link href="../css/animate.css" rel="stylesheet"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+ 		<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+ 		<style type="text/css">
+ 		
+ 			
+			h2{margin:10px 0;padding-bottom:10px;width:180px;color:#78788c;border-bottom:3px solid #78788c}
+			input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
+			input:focus{border-bottom:2px solid #78788c}
+			p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
+		</style>
+ 		
+</head>
+<body ng-app="healthApp" ng-controller="healthController">
+
+ <img src="../img/hp.png" style="width: 100%; height: 200px;" alt="header"><div class="container" style="padding-top: 30px;">
+<h1 style="padding-bottom: 50px; color:#004d4d; text-align:center ; font-weight: bolder; ">Our   Health   Packages</h1>
+ <div class="row">
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">BASIC HEALTH SCREENING</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Complete Blood Count with ESR</li>
+			      	<li>Blood Grouping and Rh Factor</li>
+			      	<li>Random Blood Sugar</li>
+			      	<li>Serum Cholesterol</li>
+			      	<li>Urine Routine</li>
+			      	<li>Consultation with Gynaecologist</li>
+			      	<li>Ante-Natal Counseling</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   
+	   
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">BASIC HEART CHECK</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal1" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Complete Blood Count with ESR</li>
+			      	<li>Blood Sugar - Fasting & PP</li>
+			      	<li>ECG</li>
+			      	<li>Chest X-Ray </li>
+			      	<li>Consultation with Cardiologist</li>
+			      	<li>Consultation with Dietician</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   
+	   
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">PRE CONCEPTION PACKAGE</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal2" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Complete Blood Count with ESR</li>
+			      	<li>Blood Sugar - Fasting</li>
+			      	<li>Blood Grouping and Rh Factor</li>
+			      	<li>Urine Routine</li>
+			      	<li>Ultrasound Scan</li>
+			      	<li>Chest X-Ray</li>
+			      	<li>Consultation with Physician</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   </div>
+	   <br>
+	   <br>
+	    <div class="row">
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">SENIOR CITIZEN PROFILE</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal3" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Complete Blood Count with ESR</li>
+			      	<li>Blood Sugar - Fasting & PP</li>
+			      	<li>Blood Urea Nitrogen</li>
+			      	<li>ECG</li>
+			      	<li>Urine Analysis</li>
+			      	<li>Consultation with Physician</li>
+			      	<li>Consultation with Dietician</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   
+	   
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">COMPREHENSIVE DIABETIC HEALTH CHECK</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal4" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Hb,TLC, DLC, ESR</li>
+			      	<li>Blood Sugar - Fasting & PP</li>
+			      	<li>Lipid Profile</li>
+			      	<li>Chest X-Ray </li>
+			      	<li>Consultation with Diabetologist</li>
+			      	<li>Consultation with Dietician</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   
+	   
+	   <div class="col-sm-4">
+	  		<div class="card" style="width:300px; height: 320px;">
+			    <h6 style="text-decoration: underline; color:teal; padding-top: 10px; font-weight: bold; margin-left: 10px;">WELL WOMEN PROFILE</h6>
+			    <hr>
+			    <div class="card-body" style="padding-left: 0px !important;">
+			     
+			      <a href="#" class="btn btn-danger" ng-click="patient.fetchDetails()" data-toggle="modal" data-target="#myModal5" style="margin-left: 150px; margin-top: -20px;">Book Now></a><br><br>
+			      <ul>
+			      	<li>Complete Blood Count with ESR</li>
+			      	<li>Blood Sugar Fasting</li>
+			      	<li>Blood Grouping and Rh Factor</li>
+			      	<li>Total Cholesterol</li>
+			      	<li>Ultrasound Abdomen & Pelvis</li>
+			      	<li>Consultation with Gynecologist</li>
+			      	<li>Consultation with Physician</li>
+			      </ul>
+			   </div>
+	  		</div>
+	   </div>
+	   </div>
+
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog" style="margin-left: 340px;">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="width: 700px; height: 450px;">
+        <div class="modal-header" style="background-color: teal;">
+        <h4 style="color:white">Request appointment for basic health screening</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form-group">
+				 <p ><input type="text"  value="{{patient.pname|uppercase}}" required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}"    required="required""></input></p>
+				  <p ><input placeholder="What would you like to tell us.."></input></p>
+				  <span type="button" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	    <div class="col-sm-5">
+	    
+	    	<input class="da" type="date">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+	    <div class="modal fade" id="myModal1" role="dialog">
+	   <div class="modal-dialog" style="margin-left: 340px;">
+	    <div class="modal-content" style="width: 700px; height: 450px;">
+	    <div class="modal-header" style="background-color: teal;">
+       <h4 style="color:white">Request appointment for basic heart attack</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form-group">
+				 <p ><input type="text"  value="{{patient.pname|uppercase}}"  required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}"   required="required"></input></p>
+				  <p ><input placeholder="What would you like to tell us.."></input></p>
+				  <span type="button" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	     <div class="col-sm-5">
+	    
+	    	<input class="da" type="date">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+	   
+	    <div class="modal fade" id="myModal2" role="dialog">
+	   <div class="modal-dialog" style="margin-left: 340px;">
+	    <div class="modal-content" style="width: 700px; height: 450px;">
+	    <div class="modal-header" style="background-color: teal;">
+       <h4 style="color:white">Request appointment for pre conception package</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form"> 
+				<p ><input type="text"  value="{{patient.pname|uppercase}}"  required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}" required="required"></input></p>
+				  <p ><input placeholder="What would you like to tell us.." required="required"></input></p>
+				   <span type="submit" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	    <div class="col-sm-5">
+	    
+	    	<input class="da" type="date" required="required">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+	    <div class="modal fade" id="myModal3" role="dialog">
+	   <div class="modal-dialog" style="margin-left: 340px;">
+	    <div class="modal-content" style="width: 700px; height: 450px;">
+	    <div class="modal-header" style="background-color: teal;">
+       <h4 style="color:white">Request appointment for senior citizen profile</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form">
+				<p ><input type="text"  value="{{patient.pname|uppercase}}"  required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}"  required="required"></input></p>
+				  <p ><input placeholder="What would you like to tell us.."></input></p>
+				  <span type="button" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	    <div class="col-sm-5">
+	    
+	    	<input class="da" type="date">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+	   
+	    <div class="modal fade" id="myModal4" role="dialog">
+	   <div class="modal-dialog" style="margin-left: 340px;">
+	    <div class="modal-content" style="width: 700px; height: 450px;">
+	    <div class="modal-header" style="background-color: teal;">
+       <h4 style="color:white">Request appointment for comprehensive diabetic health check</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form">
+				<p ><input type="text"  value="{{patient.pname|uppercase}}"required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}"   required="required"></input></p>
+				  <p ><input placeholder="What would you like to tell us.."></input></p>
+				  <span type="button" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	    <div class="col-sm-5">
+	    
+	    	<input class="da" type="calendar">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+	   
+	   
+	    <div class="modal fade" id="myModal5" role="dialog">
+	   <div class="modal-dialog" style="margin-left: 340px;">
+	    <div class="modal-content" style="width: 700px; height: 450px;">
+	    <div class="modal-header" style="background-color: teal;">
+       <h4 style="color:white">Request appointment for well women profile</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding: 0px 10px 0px 10px;">
+        
+  		<div class="row">
+  		<div class="col-sm-7">
+	  		
+	          <form class="form">
+				<p ><input type="text"  value="{{patient.pname|uppercase}}"  required="required"></input></p>
+				  <p ><input type="email" value="{{patient.emailId|uppercase}}"   required="required"></input></p>
+				  <p ><input placeholder="What would you like to tell us.."></input></p>
+				   <span type="button" style="padding: 10px; background-color: teal; color: white; cursor: pointer; border: 1px solid #337ab7;" class="ra">Request Appointment</button>
+			  </form>
+	    </div>
+	    <div class="col-sm-5">
+	    
+	    	<input class="da" type="date">
+	    
+	    </div>
+        </div>
+        </div>
+      </div>
+      
+    </div>
+</div>
+
+	<script type="text/javascript">
+	
+		$(".ra").click(function(){
+			swal("Appointment Request Sent", "Thank you. Your health check request has been submitted successfully.", "success");
+		});
+	
+	</script>
+
+	   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

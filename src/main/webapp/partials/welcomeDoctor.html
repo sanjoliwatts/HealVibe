@@ -1,0 +1,143 @@
+<link rel="stylesheet" href="../css/bootstrapDoctor.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script>
+
+<body class="container-fluid" ng-app="doctorApp" ng-controller="doctorWelcomeController"> 
+<nav class="navbar navbar-default" >
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#my-nav">
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span>
+        			<span class="icon-bar"></span> 
+      			</button>
+				<a href="#/" class="navbar-brand">LifeSavers</a>
+			</div>
+			<div class="collapse navbar-collapse" id="my-nav">
+		        <ul class="nav navbar-nav navbar-right">
+		        	<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Welcome {{patient.pname}}<span class="caret"></span></a>
+		        	<ul class="dropdown-menu">
+            <li ng-click="logout()"><a href="../index.html" data-toggle="modal" >Logout</a></li>
+              
+          </ul>	
+		        	</li>
+                 </ul>
+			</div>
+		</div>
+	</nav>
+
+<header class="intro">
+  <div class="background-image"></div>
+  <div class="intro-body">
+    <div class="container-fluid">
+     
+        
+          <h2 style="color:#004d4d; font-size: 40px; padding-left:100px; padding-right:100px;">You Are Born With The Ability To Change Someone's Life</h2>
+          <h1 style="color:#004d4d">Don't Waste It</h1>
+          
+          <div style="display:inline-block; padding-top:55px;">
+               <div class="col-md-2 col-md-offset-2" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/viewAppointments" data-toggle="modal" data-target="#viewAppointmentsModal" id="viewAppointments">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/doc_icon.png" class="img-responsive" style="max-width:100%;max-height:100%"></div>
+                                  <h2 ><span class="block-btn">View Appointments</span></h2>
+                                  <p style="color:white;">View And Schedule Your Appointments</p>
+                                </div></a>
+                      </ul>
+                    </div>
+                    
+             <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/cancelDoctorAppointments" data-toggle="modal" data-target="#cancelDoctorAppointmentModal" id="cancelDoctorAppointment">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/cancel_appointment.png" class="img-responsive" 
+                                 style="max-width:100%;max-height:100%"></div>
+                                  <h2 ><span class="block-btn">Cancel Appointment</span></h2>
+                                 <p style="color:white;">Busy Today! Cancel Your Appointments Here</p>
+                                </div></a>
+                      </ul>
+                    </div>
+                     <div class="col-md-2 col-md-offset-1" style="background-color:  #669999;"> <!--  #8c8c8c -->
+                     <ul style="padding:0; margin:0">
+                          <a href="#/addHealthRecords" data-toggle="modal" data-target="#addHealthRecordsModal" id="addHealthRecords">
+                             <div style="padding: 37px 8px 10px; position:relative;">
+                                 <div class="icon-main"><img src="../img/health_record.png" class="img-responsive" 
+                                 style="max-width:100%;max-height:100%"></div>
+                                    <h2 ><span class="block-btn">Add Health Records</span></h2>
+                                    <p style="color:white;">No heaps of papers, only easy access</p>
+                                </div></a>
+                        </ul>
+                    </div>
+                   
+                  
+                </div>
+    </div>
+  </div>
+</header>
+
+	
+<!-- <div class="container-fluid" >
+
+	<div class="col-md-4"></div>
+	<div class="col-md-4 bordering">
+		<h3>Doctor welcome Page</h3>
+	 		<form ng-submit="showAppointments()"> 
+				<div  class="form-group">
+					<label>Select the date</label>
+					<input type="date" ng-model="a.app_date">
+				</div>
+				<div  class="form-group">
+					<input type="submit" value="show appointments">
+				</div>
+			
+				<div class="form-group" ng-if="appointment">
+				<table class="table table-bordered table-hover">
+					<tr>
+						<th>Patient ID</th>
+						<th>Email ID</th>
+						<th>Contact Number</th>
+					</tr>
+					<tr ng-repeat="cust in appointment"
+						ng-class-even="'info'" ng-class-odd="'success'">
+						<td>{{ cust.userId}}</td>
+						<td>{{ cust.emailId}}</td>
+						<td>{{ cust.contactNo}}</td>
+					</tr>
+				</table>
+				</div>
+				<div class="form-group">
+					<input type="button" value="Cancel Appointment" ng-click="fetchReferenceList()">
+				</div>
+				<div ng-show="referenceList">
+					<div class="form-group">
+						<select class="form-control"   ng-model="details.reference" ng-change="fetchAppointmentDetails()">
+						<option  ng-repeat="i in referenceList" ng-value="i">{{i}}</option>
+					</select>
+					</div>
+					<div ng-show="details.reference" class="form-group">
+						<label class="form-control">Doctor:{{details.dName}}</label>
+						<label class="form-control">Department:{{details.department}} </label>
+						<label class="form-control">Appointment Date:{{details.app_date}}</label>	
+					</div> 
+					<div ng-show="details.reference" class="form-group">
+						<input type="button" value="Cancel" class="btn btn-primary" ng-click="cancelAppointment()">
+					</div>
+				</div>
+			</form> 
+		<br/>
+	</div>	
+	<div class="col-md-4" >{{message}}</div>
+</div>	 -->
+</body>
+<div class="container-fluid">
+		<div class="text-center">
+			<div ng-view="myView"></div>
+		</div>
+	</div> 

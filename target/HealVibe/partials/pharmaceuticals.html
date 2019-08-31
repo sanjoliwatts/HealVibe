@@ -1,0 +1,1404 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pharmaceuticals Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../js/shared/angular.js"></script>
+	<script src="../js/shared/angular-route.js"></script>
+	<script src="../js/shared/angular-cookies.js"></script>
+	<script src="../js/user/Properties.js"></script>
+	<script src="../js/user/Application.js"></script>
+	<script src="../js/user/Controller.js"></script>
+    
+    <style type="text/css">
+    
+    	.navbar{
+    		border-radius: 0px;
+    		background-color: #004d4d;
+    		height: 120px;
+    	}
+    	
+    	.med{
+    		background-color: white;
+    		height: 130px;
+    		border-radius: 5px;
+    	}
+    	
+    	.quantity {
+		  top:-15px;
+		  position: relative;
+		  float: right;
+		}
+		
+		input[type=number]::-webkit-inner-spin-button,
+		input[type=number]::-webkit-outer-spin-button
+		{
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+		
+		input[type=number]
+		{
+		  -moz-appearance: textfield;
+		}
+		
+		.quantity input {
+		  width: 65px;
+		  height: 42px;
+		  line-height: 1.65;
+		  float: left;
+		  display: block;
+		  padding: 0;
+		  margin: 0;
+		  padding-left: 20px;
+		  border: 1px solid #eee;
+		}
+		
+		.quantity input:focus {
+		  outline: 0;
+		}
+		
+		.quantity-nav {
+		  float: left;
+		  position: relative;
+		  height: 42px;
+		}
+		
+		.quantity-button {
+		  position: relative;
+		  cursor: pointer;
+		  border-left: 1px solid #eee;
+		  width: 20px;
+		  text-align: center;
+		  color: #333;
+		  font-size: 13px;
+		  font-family: "Trebuchet MS", Helvetica, sans-serif !important;
+		  line-height: 1.7;
+		  -webkit-transform: translateX(-100%);
+		  transform: translateX(-100%);
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  -o-user-select: none;
+		  user-select: none;
+		}
+		
+		.quantity-button.quantity-up {
+		  position: absolute;
+		  height: 50%;
+		  top: 0;
+		  border-bottom: 1px solid #eee;
+		}
+		
+		.quantity-button.quantity-down {
+		  position: absolute;
+		  bottom: -1px;
+		  height: 50%;
+}
+.inner-addon { 
+    position: relative; 
+}
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 15px; }
+</style>
+    
+</head>
+<body style="background-color: rgb(240, 240, 240);" ng-app="pharmaApp" ng-controller="pharmaController">
+
+<div class="container-fluid">
+<div class="row navbar">
+
+	<div class="col-sm-4">
+
+	<div class="form-group inner-addon" style="padding-left:15px; padding-top:50px;">
+	  <input type="text" class="form-control" style=" height: 40px; font-size:16px;" placeholder="Search Medicines">
+	</div>
+	</div>
+	
+	<div class="col-sm-4">
+	</div>
+	<a href="payments.html">Pay Now</a>
+	<div class="col-sm-4">
+	
+	<div style="position: relative; top: 25px; font-size: 18px;">
+	<span style="color: white; "><i class="fas fa-shopping-cart">&nbsp;</i>items</span>
+	<span style="color: white;  float: right; right: 30px;"><i class="fas fa-rupee-sign"></i>&nbsp;</i>cost</span>
+	</div>
+	<div style="position: relative; top: 40px; text-align: center;">
+		<button style="background-color: #c9d0db; border: none; width: 100%; height: 40px; border-radius: 2px; color: white;" disabled="disabled">Your cart is empty</button>
+	</div>
+	
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-7" ng-init="list=['a','b','c','d']">
+		<h5>Healthcare Products</h5>
+		<div class="med" style="padding: 10px; margin-bottom: 10px;" ng-repeat="i in list">
+			<div class="row" >
+				<div class="col-sm-1" style="text-align: right;" >
+					<img alt="" src="../img/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+					<h4>{{i}} 150mg Tab 14`S</h4>
+					<p>Prescription not required</p>
+					<br>
+					<span><i class="fas fa-rupee-sign"></i>&nbsp;7.70</span>
+					<div class="quantity" ng-hide="AddedToCart" >
+					<input type="button" class="button" value="Add To Cart" ng-model="AddedToCart" ng-click="AddedToCart=true;" style="width: 100%; padding-right: 20px; padding-left:20px; ">
+					
+					</div>
+					{{AddedToCart}}
+	<div class="inner-addon right-addon quantity" ng-show="AddedToCart">
+		    <input type="number" min="1" ng-value="{{input}}" class="form-control" ng-model="input" id="myNumber"/>
+		     <button class="glyphicon glyphicon-plus btn"  style="position: relative;margin-top: px;margin-top: 0px;margin: 0px;
+    padding: 1px;cursor: pointer;max-inline-size: 30px; max-block-size: 20px; border-radius:0px; cursor: crosshair;" ng-click="input=input+1" ></button>
+		    <br>
+		    <button class="glyphicon glyphicon-minus btn" style="position: relative; padding: 1px; 
+		    cursor: pointer; margin-top: -4px; max-inline-size: 30px; max-block-size: 20px; border-radius:0px;">
+		    </button>
+	</div>
+ 
+				</div>
+				
+			</div>
+		
+			
+		</div>
+		</div>
+		
+	<!-- 	<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="../image/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Crocin Advance 500mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;13.06</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Asthalin Inhaler 200md</h4>
+				<p>Prescription required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;98.94</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Cetrizine 5mg Tab 10`S</h4>
+				<p>Prescription required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;16.72</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Shelcal 500mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;68.00</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Ecosprin 150mg Tab 14`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;7.70</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Ecosprin 150mg Tab 14`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;7.70</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div class="med" style="padding: 10px; margin-bottom: 10px;">
+		
+			<div class="row">
+			
+				<div class="col-sm-1" style="text-align: right;">
+				<img alt="" src="images/img1.png" class="img-circle" width="30" style="margin-top: 10px;">
+				</div>
+				<div class="col-sm-11">
+				
+				<h4>Dolo 650mg Tab 15`S</h4>
+				<p>Prescription not required</p>
+				<br>
+				<span><i class="fas fa-rupee-sign"></i>&nbsp;26.93</span>
+				<span class="quantity">
+				  <input type="number" min="0" step="1" value="0">
+				</span>
+					
+				</div>
+			</div>
+			
+			
+		</div>
+		
+	
+	</div> -->
+	
+	<div class="col-sm-5">
+	
+		<div class="cart" style="background-color: white; text-align: center; padding: 80px 20px 80px 20px; border-radius:5px; margin-top: 35px;">
+		
+			<img alt="" src="images/img3.png" height="150" width="150">
+			<h4>Your cart is empty.</h4>
+			<p>Add a medicine</p>
+		</div>
+	
+	</div> 
+
+</div>
+
+</div>
+</div>
+
+<!--  <script type="text/javascript">
+
+jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+jQuery('.quantity').each(function() {
+  var spinner = jQuery(this),
+    input = spinner.find('input[type="number"]'),
+    btnUp = spinner.find('.quantity-up'),
+    btnDown = spinner.find('.quantity-down'),
+    min = input.attr('min'),
+    max = input.attr('max');
+
+  btnUp.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue >= max) {
+      var newVal = oldValue;
+    } else {
+      var newVal = oldValue + 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
+
+  btnDown.click(function() {
+    var oldValue = parseFloat(input.val());
+    if (oldValue <= min) {
+      var newVal = oldValue;
+    } else {
+      var newVal = oldValue - 1;
+    }
+    spinner.find("input").val(newVal);
+    spinner.find("input").trigger("change");
+  });
+
+});
+
+</script> -->
+
+
+</body>
+</html>
+

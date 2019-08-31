@@ -1,0 +1,88 @@
+<div class="container-fluid">
+ 
+  <!-- Modal -->
+  <div class="modal fade" id="registerPatientModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		  <h4>Register As Patient</h4>
+		  <!-- <span class="glyphicon glyphicon-lock"></span> //keep it inside the above h4 tag -->
+        </div>
+        <div class="modal-body">
+          <form ng-submit="signupForm.submitTheForm()">
+		
+			<div class="form-group">
+				 <input type="text" name="name" placeholder="Name"
+					class="form-control" ng-model="signupForm.name"
+					required="required" autofocus />
+			</div>
+			<div class="form-group">
+				 <input type="number" name="age" placeholder="Age"
+					class="form-control" ng-model="signupForm.age"
+					required="required" autofocus />
+			</div>
+			<!--  
+			<div class="form-group" style="float:left" ng-init="genderList=['Male','Female']">
+				<label>Gender</label><br /> <label
+					ng-repeat="k in genderList" class="radio-inline" > <input
+					type="radio"
+					ng-model="signupForm.gender" value="{{k}}" name="gender" required="required"/>{{k}}
+				</label>
+			</div> -->
+		  	<div class="form-group">
+				 <input type="number" placeholder="Contact Number"
+					class="form-control" ng-model="signupForm.contactNo" min="1000000000" max="9999999999" max-length="10" required="required"/>
+			</div>
+			<div class="form-group">
+				 <input type="email" placeholder="Email Id"
+					class="form-control" ng-model="signupForm.emailId"  required="required"/>
+			</div>
+			<div class="form-group">
+                     <input type="password" placeholder="Password" name="password" ng-model="signupForm.password"  
+                           class="form-control" required="required" ng-blur="matchpattern()" ng-focus="reset()">
+           	</div>
+           	{{signupForm.res1}}
+           	<div class="form-group">
+                     <input type="password" placeholder="Confirm Password" name="cpassword" ng-model="signupForm.cpassword"  
+                           class="form-control" required="required" ng-blur="matchpassword()" ng-keypress="reset1()">
+           	</div>
+           	{{signupForm.res2}}
+           		<div class="form-group">
+				<select class="form-control" name="question"
+					ng-model="signupForm.question" placeholder="Select Security Question" required="required">
+					<option value="" selected disabled>Select Security Question</option>
+					<option value="What is the name of your native city?">What is the name of your native city?</option>
+					<option value="What is the name of your native state?">What is the name of your native state?</option>
+					<option value="What is the name of your favorite cousin?">What is the name of your favorite cousin?</option>
+					<option value="Who was your childhood Hero?">Who was your childhood Hero?</option>
+					<option value="What is the name of your pet?">What is the name of your pet?</option>
+					<option value="Which is your favorite Holiday Destination?">Which is your favorite Holiday Destination?</option>
+					<option value="What was the name your elementary school?">What was the name your elementary school?</option>
+					<option value="What is the name of your primary school?">What is the name of your primary school?</option>
+					<option value="what is the name of your favorite plant?">what is the name of your favorite plant?</option>
+				</select>
+	
+			</div>
+			<div ng-show="signupForm.question" class="form-group">
+			 <input type="text" name="answer" placeholder="Security Answer"
+					class="form-control" ng-model="signupForm.answer"
+					required="required" autofocus />
+			
+			
+			</div>
+			<button type="submit" class="btn btn-primary btn-block" >Submit</button>
+			<div>{{signupForm.message}}</div>
+			</form>
+        </div>
+        <div class="modal-footer">
+		  <button type="submit" class="btn btn-default btn-default pull-left" data-dismiss="modal"> Cancel</button>
+		  <!-- <span class="glyphicon glyphicon-remove"></span> //keep it before the above cancel button -->
+       
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>

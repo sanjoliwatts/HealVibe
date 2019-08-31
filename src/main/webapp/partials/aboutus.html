@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Hospital@Click</title>
+<!-- ******************************************************** -->
+<!-- <link rel="stylesheet" href="../css/bootstrap.css">
+<script src="../js/shared/angular.js"></script>
+<script src="../js/shared/angular-route.js"></script>
+<script src="../js/shared/jquery.js"></script>
+<script src="../js/shared/angular-cookies.js"></script>
+<script src="../js/shared/bootstrap.js"></script>
+<script src="../js/user/Properties.js"></script>
+<script src="../js/user/Application.js"></script>
+<script src="../js/user/Controller.js"></script> -->
+
+<!-- Custom CSS -->
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+ 
+<!-- Custom JS-->
+<!-- <script src="webjars/jquery/3.4.1/jquery.min.js"></script> -->  <!-- uncomment -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <!-- <script src="webjars/angularjs/1.7.7/angular.min.js"></script> -->  <!-- uncomment -->
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+ <!-- <script src="webjars/angularjs/1.7.7/angular-route.min.js"></script> --><!-- uncomment -->
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+ <!-- <script src="webjars/angularjs/1.7.7/angular-cookies.min.js"></script> --> <!-- uncomment -->
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+ 
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+
+<style type="text/css">
+
+	.profile{
+	
+		width: 150px;
+		margin-top: 20px;
+	
+	}
+	.details{
+	
+		background-color: black;
+		height: 190px;
+		position: absolute;
+		width: 100%;
+		z-index: 100;
+		color: white;
+		opacity: 0.9;
+	
+	}
+	
+	.details::after{
+	
+		
+	
+	}
+
+</style>
+
+</head>
+<body style="font-family: 'Poppins', sans-serif;">
+
+	<div class="container-fluid">
+	
+		<div class="row">
+		
+			<!-- <img id="cover" alt="cover" src="../img/img4.jpg" style="background-repeat: no-repeat; background-size: cover; width: 100%; max-height: 662px; position: absolute;"> -->
+			
+			<div style="width: 100%; background-color: rgb(0, 150, 136); height: 80px; text-align: center;">
+			
+				<h1 style="margin: 0px; color: white; padding-top: 15px; ">About Us</h1>
+			
+			</div>
+			
+			<div style="font-size:17px; margin-top: 20px;" class="container">
+			
+				<p style="font-family: 'Poppins', sans-serif;">HealVibe Hospital Limited is a leading integrated healthcare delivery service provider in India. The healthcare verticals of the company primarily comprise hospitals, diagnostics and day care
+					specialty facilities. Currently, the company operates its healthcare delivery services in Mysore, Banglore and Pune with 45 healthcare facilities (including projects under development), approximately 5,000 potential beds and 150
+					diagnostic centres.</p>
+				
+				<div class="col-sm-4">
+				
+					<img alt="about" src="../img/about.jpg" style="width: 200px; height: 200px;">
+				
+				</div>
+				<div class="col-sm-8" style="padding: 0px;">
+				
+					<p style="font-family: 'Poppins', sans-serif; margin-top: 50px;">We research the latest treatment methods and apply them according to strict scientific criteria. In a global study of the 30 most technologically advanced
+					hospitals in the world, its flagship, the HealVibe Hospital, was ranked No.5, by topmastersinhealthcare.com,
+					and placed ahead of many other outstanding medical institutions in
+					the world.</p>
+				
+				</div>
+					
+			</div>
+		
+		</div>
+		
+		<div class="row" style="text-align: center; padding-bottom: 40px;">
+		
+			<hr>
+			<h1 style="padding-bottom: 20px; text-align: left; padding-left:40px; color:teal; text-decoration:underline;">Our Team</h1>
+		
+			
+				
+				<!-- <div id="det" class="details">
+				
+					<i class="fas fa-times cross" style="float: right; padding: 10px; cursor: pointer;"></i>
+				
+				</div> -->
+				
+				<div class="col-sm-2">
+				
+					<div class="details1" style=" color: black; z-index: 200;">
+					
+						<h3 style="elevation:inherit; ">SANJOLI WATTS</h3>
+					
+					</div>
+				
+					<img alt="pp1" src="../img/doctor_icon.png" class="img-circle profile" id="sanjoli">
+				
+				</div>
+			
+		
+		</div>
+		
+		<!-- <p id="details" style="text-align: center;">SANJOLI</p> -->
+	
+	</div>
+	
+	<script type="text/javascript">
+	
+		$("#cover").click(function(){
+			$(this).fadeOut();
+		});
+		
+		$(".details").addClass("hidden");
+		$(".details1,.details2,.details3,.details4,.details5,.details6").addClass("hidden");
+		
+		$("#sanjoli").click(function(){
+			$(".details1, .details").removeClass("hidden");
+		});
+		
+		$(".cross").click(function(){
+			$(".details1,.details2,.details3,.details4,.details5,.details6,.details").addClass("hidden");
+		});
+	
+	</script>
+
+</body>
+</html>
+
+
+
+
