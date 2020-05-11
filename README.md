@@ -8,7 +8,8 @@ A dynamic and responsive web application to manage processes, reduce manual work
 raise requests for blood donation.
 * Doctors can view or schedule their appointments, add or edit patient’s data and check for emergencies.
 * Admin functionality is included for maintaining correct records for doctors and patients.
-* Website's main page displays several links for sign up, login, View & Book Health Packages, Patient's reviews, About us and contact us pages.
+* Website's main page displays several links for sign up, login, View & Book Health Packages, Patient's reviews, Departments,
+Payment Options and much more.
 
 ## Tech/Framewroks Used
 HTML5, CSS3, Bootstrap4,  AngularJS, REST Services, Java, Hibernate Framework and MySQL
@@ -27,5 +28,18 @@ HTML5, CSS3, Bootstrap4,  AngularJS, REST Services, Java, Hibernate Framework an
 
 ## Few Screenshots
 
-### User Registration
+### Navigation Bar
+![HealthPackages](/src/main/webapp/img/Health Packages.png?raw=true)
+
+#### User Registration
 ![RegisterAsPatient](/src/main/webapp/img/RegisterAsPatient.png?raw=true)
+
+#### Excellence Centres
+![ExcellenceCentres](/src/main/webapp/img/Excellence_centres.png?raw=true)
+
+#### Patient's Speak
+![RegisterAsPatient](/src/main/webapp/img/Patients_Speak.png?raw=true)
+
+#### Quick Links
+![QuickLinks](/src/main/webapp/img/Quick_Links.png?raw=true)
+
