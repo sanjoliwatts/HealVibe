@@ -28,8 +28,8 @@ HTML5, CSS3, Bootstrap4,  AngularJS, REST Services, Java, Hibernate Framework an
 
 ## Few Screenshots
 
-### Navigation Bar
-![HealthPackages](/src/main/webapp/img/Health Packages.png?raw=true)
+#### Navigation Bar
+![HealthPackages](/src/main/webapp/img/Health_Packages.png?raw=true)
 
 #### User Registration
 ![RegisterAsPatient](/src/main/webapp/img/RegisterAsPatient.png?raw=true)
