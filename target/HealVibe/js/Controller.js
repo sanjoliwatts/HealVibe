@@ -24,13 +24,14 @@ application.controller("LoginController",
   	$scope.credentials.message=null;
   	
     $scope.credentials.login = function() {
-    	//console.log("Hello");
+    	console.log("Inside credentials.login "+ URI + "Hospital/fetchdetails/" + $scope.credentials.userId + 
+		"/" + $scope.credentials.password);
     	sessionStorage.setItem("loginsession", "yes");
     	$http.get(URI + "Hospital/fetchdetails/" + $scope.credentials.userId + 
     			"/" + $scope.credentials.password).then(
     			function(response) {	
     				$scope.credentials.message = response.data.message;
-    				//console.log($scope.credentials.message);
+    				console.log($scope.credentials.message);
     				if(angular.equals($scope.credentials.message,"Admin"))
     					$window.location.href = 'partials/adminLogin.html';
     				if(angular.equals($scope.credentials.message,"Doctor"))

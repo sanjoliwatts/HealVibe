@@ -102,7 +102,7 @@ public class UserAPI {
 		 * .getProperty("GettingDetails.SUCCESS2"); message +=
 		 * login.getUserId()+" ";
 		 */
-		if (login.getUserId() == 529983)
+		if (login.getUserId() == 521)
 			message = "Admin";
 		else if (login.getUserId() % 2 == 0)
 			message = "Doctor";
@@ -126,10 +126,15 @@ public class UserAPI {
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response fetchdetails(@PathParam("id") int id,
 			@PathParam("password") String password) throws Exception {
+				System.out.println("Inside fetchDetails API java");
 		Response response = null;
 		try {
-			UserService userService = Factory.createUserService();
-			Login login = userService.getDetails(id, password);
+			// commenting service methods because no factory is available to connect to service
+			// UserService userService = Factory.createUserService();
+			// Login login = userService.getDetails(id, password);
+			if(id==521 &&  password=="admin"){
+				Login login = new Login(521, "admin");
+			}
 			if (login != null) {
 				String successMessage = this.getSuccessMessage(login);
 				login.setMessage(successMessage);

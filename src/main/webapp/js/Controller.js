@@ -24,7 +24,8 @@ application.controller("LoginController",
   	$scope.credentials.message=null;
   	
     $scope.credentials.login = function() {
-    	console.log("Inside credentials.login");
+    	console.log("Inside credentials.login "+ URI + "Hospital/fetchdetails/" + $scope.credentials.userId + 
+		"/" + $scope.credentials.password);
     	sessionStorage.setItem("loginsession", "yes");
     	$http.get(URI + "Hospital/fetchdetails/" + $scope.credentials.userId + 
     			"/" + $scope.credentials.password).then(

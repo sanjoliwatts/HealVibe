@@ -1360,7 +1360,9 @@ body {
 	color: #333;
 	background-color: #fff;
 	width: 100vw;
-    overflow-x: hidden;
+	overflow-x: hidden;
+	margin-left: 0%;
+    margin-top: 0%;
 }
 
 button, input, select, textarea {

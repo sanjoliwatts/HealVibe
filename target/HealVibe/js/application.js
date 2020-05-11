@@ -67,9 +67,10 @@ var application = angular.module('Application',["ngRoute","ngCookies"]);
 	})
 }])*/
 application.config([ '$routeProvider', function($routeProvider) {
+	//$routeProvider.hashPrefix('');
 	$routeProvider	
 	.when('/registerPatient', {
-		templateUrl : '../partials/registerPatient.html',
+		templateUrl : 'partials/registerPatient.html',
 		controller: "patientController"
 	}).when('/registerDoctor', {
 		templateUrl : 'partials/registerDoctor.html',
